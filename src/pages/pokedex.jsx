@@ -4,7 +4,7 @@ import { Header } from "../components/header"
 import { SectionPokemon } from "../components/section-pokemon"
 
 
-export const Pokedex = () => {   
+export const Pokedex = () => {
     return (
         <>
             <Header />
@@ -33,4 +33,8 @@ const DivStyled = styled.section`
 const ImgStyled = styled.img`
     width: 300px;
     margin: 50px 0;
+
+    @media (max-width: 600px) {
+            margin-bottom: 20px;
+        }
 `

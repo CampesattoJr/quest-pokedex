@@ -32,6 +32,10 @@ const NavList = styled.ul`
     a {
         cursor: default;
     }
+
+    @media (max-width: 600px) {
+            display: none;
+        }
 `;
 
 const NavItem = styled.li`

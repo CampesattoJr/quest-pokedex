@@ -5,6 +5,7 @@ import axios from 'axios'
 import { useQuery } from "react-query"
 import { SerchBar } from "../serchbar"
 import './style.css'
+import { GenericButton } from "../buttons/generic-button"
 
 export const SectionPokemon = () => {
     const { types } = useContext(TypeContext)
@@ -56,7 +57,8 @@ export const SectionPokemon = () => {
     }
 
     const { data, isLoading, isError, error } = useQuery('pokemon', fetchPokemons, {
-        refetchOnWindowFocus: false})
+        refetchOnWindowFocus: false
+    })
 
     if (isLoading) return <p>Loading...</p>
 
@@ -89,7 +91,7 @@ export const SectionPokemon = () => {
                             </LiStyled>
                         ))}
                     </ul>
-                    <button onClick={loadMorePokemons}>Load more</button>
+                    <GenericButton text="Load more" onClick={loadMorePokemons} />
                 </section>
             </MainStyled>
         </>
@@ -103,13 +105,13 @@ const MainStyled = styled.main`
     section{
         background-color: #e7dfdf;
         text-align: center;
+        padding: 40px 20px 20px;
     }
 
     ul{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
-        padding: 20px;
         justify-items: center;
     }
 
@@ -120,7 +122,7 @@ const MainStyled = styled.main`
     }
 
     @media (max-width: 600px) {
-        padding: 50px 0;
+        padding: 20px 0 50px;
         
         ul{
             grid-template-columns: repeat(1, 1fr);
